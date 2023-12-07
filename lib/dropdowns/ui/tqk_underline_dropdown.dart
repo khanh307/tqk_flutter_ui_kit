@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 
-class TQKOutlineDropdown extends StatefulWidget {
+class TQKUnderlineDropdown extends StatefulWidget {
   final String? labelText;
   final String? hintText;
   final IconData? prefixIcon;
-  final Widget? dropdownIcon;
+  final Color? fillColor;
   final Function(dynamic value) onChange;
   final Function(dynamic)? validator;
   final List<DropdownMenuItem> items;
-  final Color? fillColor;
   final bool isExpanded;
   final TextStyle? hintStyle;
   final TextStyle? textStyle;
   final TextStyle? labelStyle;
   final Color outlineColor;
+  final Widget? dropdownIcon;
   final Color focusColor;
   final double radius;
   dynamic value;
 
-  TQKOutlineDropdown(
+  TQKUnderlineDropdown(
       {super.key,
       this.hintText,
       this.validator,
@@ -38,10 +38,10 @@ class TQKOutlineDropdown extends StatefulWidget {
       this.dropdownIcon});
 
   @override
-  State<TQKOutlineDropdown> createState() => _TQKOutlineDropdownState();
+  State<TQKUnderlineDropdown> createState() => _TQKUnderlineDropdownState();
 }
 
-class _TQKOutlineDropdownState extends State<TQKOutlineDropdown> {
+class _TQKUnderlineDropdownState extends State<TQKUnderlineDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
@@ -52,8 +52,8 @@ class _TQKOutlineDropdownState extends State<TQKOutlineDropdown> {
           : null,
       value: widget.value,
       isExpanded: widget.isExpanded,
-      menuMaxHeight: 400,
       icon: widget.dropdownIcon,
+      menuMaxHeight: 400,
       decoration: InputDecoration(
         labelText: widget.labelText,
         hintText: widget.hintText,
@@ -70,12 +70,12 @@ class _TQKOutlineDropdownState extends State<TQKOutlineDropdown> {
           color: Colors.black,
           fontWeight: FontWeight.w600,
         ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(widget.radius),
+        border: UnderlineInputBorder(
+          // borderRadius: BorderRadius.circular(widget.radius),
           borderSide: BorderSide(color: widget.outlineColor, width: 2),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(widget.radius),
+        focusedBorder: UnderlineInputBorder(
+          // borderRadius: BorderRadius.circular(widget.radius),
           borderSide: BorderSide(color: widget.focusColor, width: 2),
         ),
         fillColor: widget.fillColor ?? Colors.white,
